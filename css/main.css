@@ -1,0 +1,643 @@
+/*Navigational links were created by Freepik from flaticon.com*/
+/*Contact form pattern by Gre3g from subtlepatterns.com*/
+
+/*************************************************************
+GARRISON SHEA PORTFOLIO 2016
+**************************************************************/
+
+
+
+
+
+
+/*GENERAL STYLING*/
+html {
+	height: 100%;
+	overflow: hidden;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {font-family: 'Josefin Sans', sans-serif;}
+
+a, p {font-family: 'Merriweather', serif;}
+
+a {
+	text-decoration: none;
+}
+
+ul {
+	list-style: none;
+}
+
+ul,
+li {
+	padding: 0;
+	margin: 0;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+/*END OF GENERAL STYLING*/
+
+
+/*PARALLAX CSS*/
+
+/*This top media query makes sure small screens and browsers which don't support 
+perspective property won't show/utilize parallax scrolling effect
+The content in the media query only shows on larger screens/tablets*/
+@media screen and (min-width: 40em) {
+  @supports ((perspective: 1px) and (not (-webkit-overflow-scrolling: touch))) {
+    body {
+    	perspective: 1px;
+    	transform-style: preserve-3d;
+    }
+
+    .slide {
+    	transform-style: inherit;
+    }
+
+	#banner {
+		z-index: -1;
+		transform: translateZ(-1px) scale(2);
+	}    
+
+	#supporting-container {
+		z-index: -1;
+		transform: translateZ(-1px) scale(2);
+	}
+  }
+}
+
+/*These parallax styles get applied regardless of screen size*/
+.slide {
+	position: relative;
+	padding: 25vh 10%;
+	min-height: 100vh;
+	width: 100vw;
+	box-sizing: border-box;
+/*	box-shadow: 0 -1px 10px rgba(0, 0, 0, .7);*/
+}
+
+/*.slide:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}*/
+
+#banner {
+	background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(../images/newyorkbg.jpeg) no-repeat center center;
+	background-size: cover;
+}
+
+#supporting-container {
+	background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(../images/macbg.jpeg) no-repeat center center;
+	background-size: cover;
+}
+
+/*END OF PARALLAX STYLES*/
+
+
+
+/*HEADER*/
+
+/*Basic styling of the header*/
+
+header {
+	color: #fff;
+	text-align: center;
+}
+
+#banner-text-container {
+	padding-top: 10vh;
+}
+
+header p:first-child {
+	color: #ddd;
+	font-weight: lighter;
+	font-size: 0.5rem;
+	padding-bottom: 0.3rem;
+	border-bottom: 2px solid rgba(70,89,75,0.5);
+	margin: 0 auto;
+	width: 80%;
+}
+
+h1 {
+	font-size: 2.5rem;
+	margin: 0;
+	padding: 1rem 0 1.3rem;
+}
+
+h1 a[href="index.html"] {
+	color: #fff;
+	font-family: "Josefin Sans", sans-serif;
+	letter-spacing: .2rem;
+}
+
+header a {
+	color: #000;
+}
+
+#anchor-button-projects {
+	color: #ccc;
+	background-color: rgba(0,0,0,0.3);
+	font-size: 0.7rem;
+	font-weight: lighter;
+	border: 1px solid #46594b;
+	padding: 10px 15px;
+	letter-spacing: 0.1rem;
+	-webkit-transition: background-color 1s ease;
+	-moz-transition   : background-color 1s ease;
+	-o-transition     : background-color: 1s ease;
+	transition        : background-color 1s ease;
+}
+
+#anchor-button-projects:hover {
+	background-color: rgba(255,255,255,0.2);
+}
+
+/*HEADER CSS SLIDE IN MENU*/
+
+#menu-container {
+	display: flex;
+	min-height: 100%;
+}
+
+input[type=checkbox] {
+	position: absolute;
+	opacity: 0;
+}
+
+#menu-container label {
+	position: fixed;
+	top: 0;
+	right: 40px;
+	z-index: 3;
+	display: block;
+	font-size: 4rem;
+	color: #D9B384;
+	cursor: pointer;
+	transform: translate3d(0,0,0);
+	transition: transform .4s;
+}
+
+input[type=checkbox]:checked ~ label {
+	color: #260B01;
+}
+
+input[type=checkbox]:checked ~ .slide-menu {
+	transform: translate3d(0,0,0);
+}
+
+input[type=checkbox]:checked ~ .slide-menu li {
+	width: 100%;
+}
+
+.slide-menu {
+	transform: translate3d(100vw,0,0);
+	position: fixed;
+	width: 100vw;
+	background: #fff;
+	color: #fff;
+	right: 0;
+	top:0;
+	height: 100%;
+	transition: all .4s;
+	overflow: hidden;
+	z-index: 2;
+}
+
+nav ul {
+	list-style: none;
+	padding: 3rem 0 0 1rem;
+	text-align: left;
+	font-size: 1.5rem;
+}
+
+a.house,
+a.person,
+a.pages,
+a.pencil {
+	display: inline-block;
+	padding: 1rem 0 1rem 5rem;
+	margin-bottom: 2rem;
+}
+
+a.house {
+	background: url(../images/buildings.svg) no-repeat left;
+	color: #fff;
+}
+
+a.person {
+	background: url(../images/circle.svg) no-repeat left;
+}
+
+a.pages {
+	background: url(../images/squares.svg) no-repeat left;
+}
+
+a.pencil {
+	background: url(../images/pen.svg) no-repeat left;
+	padding-left: 4rem;
+	margin-bottom: 0;
+}
+
+#main-nav a{
+	color: #D9B384;
+}
+
+#main-nav ul li:last-child {
+	background-color: #46594b;
+	position: fixed;
+	padding: 24px 0;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	text-align: center;
+}
+
+a.contact-button {
+	box-sizing: border-box;
+	color: #fff;
+}
+
+
+
+
+
+/*MAIN CONTENT*/
+#main-container {
+	background-color: #fff;
+	padding: 0;
+}
+
+main {
+	text-align: center;
+	width: 100%;
+	margin: 0 auto;
+}
+
+main h2 {
+	color: #46594b;
+	font-size: 3rem;
+	padding: 0;
+}
+
+main ul,
+main li,
+main a {
+	max-width: 100%;
+	min-height: 100vw;
+}
+
+#project-container a {
+	display: block;
+	background: #a6977c;
+}
+
+
+
+
+/*SUPPORTING CONTENT SECTION*/
+#supporting-container {
+	color: #fff;
+	text-align: center;
+}
+
+#supporting-container p {
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 2rem;
+	line-height: 1.5;
+}
+
+#supporting-container span {
+	color: #d9b384;
+}
+
+#supporting-container img {
+	display: none;
+}
+
+	/*This essentially makes the "About" link in the nav bar 
+	work right with the CSS parallax*/
+
+#support-anchor {
+	width: 0;
+	height: 0;
+	clear: both;
+	position: absolute;
+	bottom: -53px;
+}
+
+/*CONTACT FORM*/
+
+#contact-form {
+	background: linear-gradient(rgba(115,79,48,0.4),rgba(115,79,48,0.4)), url(../images/contactbg.png);
+	text-align: left;
+	padding: 3rem 0;
+	color: #fff;
+}
+
+#contact-form p {
+	margin: 0;
+	padding-bottom: 1.5rem;
+	text-align: center;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 2rem;
+	color: #D9B384;
+}
+
+#contact-form textarea,
+#contact-form label,
+#contact-form input {
+	display: block;
+	width: 100%;
+}
+
+#contact-form label {
+	font-weight: lighter;
+	padding-bottom: .5rem;
+}
+
+#contact-form input,
+#contact-form textarea {
+	border-radius: 2px;
+	border: 0;
+	padding: .5rem 0;
+	background-color: rgba(38,11,1,0.3);
+}
+
+.contact-container {
+	max-width: 80%;
+	margin: 0 auto;
+	padding: 1rem;
+	background-color: rgba(255,255,255,0.1);
+	border-radius: 2px;
+}
+
+/*FOOTER*/
+
+footer {
+	width: 100%;
+	height: 40vh;
+	background-color: #260B01;
+	color: #fff;
+	text-align: center;
+}
+
+.footer-container,
+.footer-container ul {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.footer-container ul {
+	padding-top: 2rem;
+}
+
+
+footer li {
+	display: inline;
+	padding: .3rem .5rem;
+}
+
+footer a:link,
+footer a:visited {
+	color: #A6977C;
+	font-size: 1.2rem;
+}
+
+footer p {
+	font-size: .6rem;
+	padding-top: 2rem;
+}
+
+/*MEDIA QUERIES*/
+
+@media screen and (min-width: 640px) {
+	/*SLIDE IN NAVIGATION*/
+	nav ul {
+		font-size: 2.7rem;
+	}
+
+	a.house,
+	a.person,
+	a.pages,
+	a.pencil {
+		padding-left: 6rem;
+		margin-bottom: 2rem;
+	} 
+
+	/*PROJECTS HEADLINE*/
+	main h2 {
+		margin: 0;
+		padding: 2rem 0;
+	}
+}
+
+@media screen and (min-width: 992px) {
+	
+	/*HEADER*/
+	header p:first-child {
+		font-size: 1rem;
+		max-width: 800px;
+	}
+
+	h1 {
+		font-size: 4rem;
+	}
+
+	/*NAVIGATION*/
+
+	input[type=checkbox],
+	#menu-container label {
+		display: none;
+	}
+
+	.slide-menu {
+		transform: translate3d(0,0,0);
+		position: absolute;
+		width: 50%; 
+		background: transparent;
+		color: #fff;
+		right: 0;
+		top:0;
+		height: initial;
+		transition: all .4s;
+		overflow: hidden;
+		z-index: 2
+	}
+
+	nav ul {
+		list-style: none;
+		padding: 1rem;
+		text-align: right;
+		font-size: 1rem;
+	}
+
+	nav li {
+		width: initial;
+		display: inline;
+		padding: 1rem;
+	}
+
+	a.house,
+	a.person,
+	a.pages,
+	a.pencil {
+		display: inline-block;
+		padding: .5rem 1rem;
+		margin: 0;
+		border-bottom: 1px solid #46594B;
+	}
+
+	a.house {
+		background: transparent;
+		color: #fff;
+	}
+
+	a.person {
+		background: transparent;
+	}
+
+	a.pages {
+		background: transparent;
+	}
+
+	a.pencil {
+		background: transparent;
+	}
+
+	#main-nav a{
+		color: #fff;
+	}
+
+	#main-nav ul li:last-child {
+		background: transparent;
+		position: inherit;
+		padding: 0;
+		width: initial;
+	}
+
+	a.contact-button {
+		box-sizing: border-box;
+		background: rgba(70,89,75,0.5);
+		padding-top: .7rem;
+		color: #ccc;
+		font-family: 'Josefin Sans', sans-serif;
+		text-transform: uppercase;
+		border: 1px solid #46594b;
+		letter-spacing: .1rem;
+		-webkit-transition: background-color 1s ease;
+		-moz-transition   : background-color 1s ease;
+		-o-transition     : background-color: 1s ease;
+		transition        : background-color 1s ease;
+	}
+
+	a.contact-button:hover {
+		background-color: rgba(255,255,255,0.2);
+	}
+
+
+
+	/*PROJECT SECTION*/
+
+	#main-container {
+		background-color: #fff;
+		padding: 1rem;
+	}
+
+	main {
+		text-align: center;
+		width: 100%;
+		margin: 0 auto;
+	}
+
+	main h2 {
+		color: #46594b;
+		font-size: 3rem;
+		padding: 3rem 0;
+	}
+
+	main ul {
+		width: 100%;
+		min-height: initial;
+		margin: 0 auto 3rem;
+	}
+
+	main li {
+		max-width: 30%;
+		min-height: initial;
+		display: inline-block;
+		margin: 1rem;
+		height: 308px;
+		width: 460px;
+	}
+
+	main a {
+		width: 100%;
+		min-height: initial;
+		display: inline-block;
+		height: 308px;
+		width: 460px;
+	}
+
+	#project-container a {
+		display: inline-block;
+		background: #a6977c;
+	}
+
+
+	/*SUPPORTING PHOTOS*/
+	#supporting-container {
+		perspective: 1px;
+	}
+
+	#supporting-container img {
+		display: inline-block;
+		float: left;
+		position: absolute;
+		top: 50%;
+		left: 35%;
+		/*width: 320px;
+		height: 320px;*/
+		transform: translateZ(.25px) scale(.75) translateX(-94%) translateY(-100%) rotate(7deg);
+		padding: 10px;
+		border-radius: 3px;
+		background: rgba(240,230,220,0.7);
+		box-shadow: 0 0 8px rgba(0,0,0,0.7)
+	}
+
+	#supporting-container img:last-of-type {
+		transform: translateZ(.4px) scale(.6) translateX(-104%) translateY(-40%) rotate(-5deg);
+	}
+
+	#supporting-container p {
+		width: 50%;
+		float: right;
+		margin-top: 0;
+		line-height: 1.75;
+		font-size: 2.5rem;
+	}
+}
+
+
+
+
+
+
+
+
+
